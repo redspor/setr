@@ -5,15 +5,6 @@ import re
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
-
-@app.route('/<url>',methods=['GET'])
-def getx(url):
-    source = f{url}
-    source = source.replace('https://teststream.herokuapp.com/getm3u8?source=', '')
-    source = source.replace('%2F', '/')
-    source = source.replace('%3F', '?')
-    videoid = request.args.get("videoid")
-    return source
 @app.route('/getm3u8',methods=['GET'])
 def getm3u8():
     source = request.url
