@@ -5,6 +5,11 @@ import re
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/',methods=['GET'])
+def home():
+    url = request.url
+    return url
 @app.route('/getm3u8',methods=['GET'])
 def getm3u8():
     source = request.url
