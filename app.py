@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/getm3u8',methods=['GET'])
 def getm3u8():
     source = request.url
-    source = source.replace('https://cdncn.herokuapp.com/getm3u8?source=', '')
+    source = source.replace('https://testfdc.herokuapp.com/getm3u8?source=', '')
     source = source.replace('%2F', '/')
     source = source.replace('%3F', '?')
     videoid = request.args.get("videoid")
@@ -35,8 +35,7 @@ def getstream():
     param = request.args.get("param")
     if param == "getts":
         source = request.url
-        source = source.replace('https://cdncn.herokuapp.com/getstream?param=getts&source=','')
-        source = source.replace('https://cdncn.herokuapp.com/getstream?param=getts&source=','')
+        source = source.replace('https://testfdc.herokuapp.com/getstream?param=getts&source=','')
         source = source.replace('%2F','/')
         source = source.replace('%3F','?')
         headers = {
@@ -67,7 +66,7 @@ def getstream():
             veri = veri.replace('edge4','edge10')
             veri = veri.replace('edge2','edge10')
             if "m3u8" in veri:
-                return "https://cdncn.herokuapp.com/getm3u8?source="+veri+'&videoid='+videoid
+                return "https://testfdc.herokuapp.com/getm3u8?source="+veri+'&videoid='+videoid
         else:
             return "Veri yok"
 
