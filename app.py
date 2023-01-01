@@ -100,7 +100,7 @@ def getstream():
             veri = veri.replace(':43434','')
             if "m3u8" in veri:
                 '''return "https://b393.c1eecaf23ff25a.cdn.fdcservers.com/getm3u8?source="+veri+'&videoid='+videoid'''
-                return "https://teststream.herokuapp.com/"+veri+'&videoid='+videoid
+                return "https://b393.c1eecaf23ff25a.cdn.fdcservers.com/"+veri+'&videoid='+videoid
         else:
             return "Veri yok"
 
