@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index(m3u8):
     m3u8 = request.url.replace('¿','/')
     source = m3u8
-    source = source.replace('http://127.0.0.1:5000/', '')
+    source = source.replace('https://teststream.herokuapp.com/', '')
     source = source.replace('%2F', '/')
     source = source.replace('%3F', '?')
     videoid = request.args.get("videoid").replace('.m3u8','')
@@ -35,7 +35,7 @@ def index(m3u8):
 @app.route('/getm3u8',methods=['GET'])
 def getm3u8():
     source = request.url
-    source = source.replace('http://127.0.0.1:5000/getm3u8?source=', '')
+    source = source.replace('https://teststream.herokuapp.com/getm3u8?source=', '')
     source = source.replace('%2F', '/')
     source = source.replace('%3F', '?')
     videoid = request.args.get("videoid").replace('.m3u8','')
@@ -97,7 +97,7 @@ def getstream():
             veri = veri.replace(':43434','')
             if "m3u8" in veri:
                 '''return "http://127.0.0.1:5000/getm3u8?source="+veri+'&videoid='+videoid'''
-                return "http://127.0.0.1:5000/"+veri+'&videoid='+videoid
+                return "https://teststream.herokuapp.com/"+veri+'&videoid='+videoid
         else:
             return "Veri yok"
 
