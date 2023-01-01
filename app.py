@@ -12,7 +12,6 @@ def index(m3u8):
     source = source.replace('https://b393.c1eecaf23ff25a.cdn.fdcservers.com/', '')
     source = source.replace('%2F', '/')
     source = source.replace('%3F', '?')
-    source = source.replace('edge100','edge10')
     videoid = request.args.get("videoid").replace('.m3u8','')
     source = source.replace(videoid+'.m3u8',videoid)
     headers = {
@@ -95,6 +94,7 @@ def getstream():
             veri = veri.replace('edge4','edge10')
             veri = veri.replace('edge2','edge10')
             veri = veri.replace('edge5','edge10')
+            source = source.replace('edge100','edge10')
             veri = veri.replace('edge1','edge10')
             veri = veri.replace('edge6', 'edge10')
             veri = veri.replace('edge7', 'edge10')
