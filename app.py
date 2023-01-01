@@ -11,6 +11,7 @@ def getm3u8():
     source = source.replace('https://teststream.herokuapp.com/getm3u8?source=', '')
     source = source.replace('%2F', '/')
     source = source.replace('%3F', '?')
+    videoid = request.args.get("videoid")
     headers = {
         "accept": "*/*",
         "accept-encoding": "gzip, deflate, br",
