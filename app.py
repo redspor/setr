@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 @app.route('/<m3u8>')
 def index(m3u8):
-    m3u8 = request.url.replace('%','/')
+    m3u8 = request.url.replace('__','/')
     source = m3u8
     source = source.replace('https://teststream.herokuapp.com/', '')
     source = source.replace('%2F', '/')
@@ -89,7 +89,7 @@ def getstream():
         if "FullscreenAllowed" in r.text:
             veri = r.text
             veri = re.findall('"URL":"(.*?)"',veri)
-            veri = veri[0].replace("\/", "%")
+            veri = veri[0].replace("\/", "__")
             veri = veri.replace('edge3','edge10')
             veri = veri.replace('edge4','edge10')
             veri = veri.replace('edge2','edge10')
