@@ -11,6 +11,7 @@ def index(m3u8):
     source = m3u8
     source = source.replace('https://teststream.herokuapp.com/', '')
     source = source.replace('%2F', '/')
+    source = source.replace('edge100','edge10')
     source = source.replace('%3F', '?')
     videoid = request.args.get("videoid").replace('.m3u8','')
     source = source.replace(videoid+'.m3u8',videoid)
