@@ -11,7 +11,6 @@ def index(m3u8):
     source = m3u8
     source = source.replace('https://teststream.herokuapp.com/', '')
     source = source.replace('%2F', '/')
-    source = source.replace('edge100','edge10')
     source = source.replace('%3F', '?')
     videoid = request.args.get("videoid").replace('.m3u8','')
     source = source.replace(videoid+'.m3u8',videoid)
@@ -86,12 +85,13 @@ def getstream():
     if param == "getm3u8":
         videoid = request.args.get("videoid")
         veriler = {"AppId": "3", "AppVer": "1025", "VpcVer": "1.0.11", "Language": "tr", "Token": "", "VideoId": videoid}
-        r = requests.post("https://lite-1x62373965.top/cinema",json=veriler)
+        r = requests.post("https://lite-1x426100.top/cinema",json=veriler)
         if "FullscreenAllowed" in r.text:
             veri = r.text
             veri = re.findall('"URL":"(.*?)"',veri)
             veri = veri[0].replace("\/", "__")
             veri = veri.replace('edge3','edge10')
+            veri = veri.replace('edge100','edge10')
             veri = veri.replace('edge4','edge10')
             veri = veri.replace('edge2','edge10')
             veri = veri.replace('edge5','edge10')
