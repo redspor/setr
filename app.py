@@ -30,7 +30,7 @@ def index(m3u8):
     }
     ts = requests.get(source, headers=headers)
     tsal = ts.text
-    tsal = tsal.replace(videoid+'_','https://yuustream.herokuapp.com/getstream?param=getts&source=https://edge5.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
+    tsal = tsal.replace(videoid+'_','https://yuustream.herokuapp.com/getstream?param=getts&source=https://edge10.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
     return tsal
 
 @app.route('/getm3u8',methods=['GET'])
@@ -55,7 +55,7 @@ def getm3u8():
     }
     ts = requests.get(source, headers=headers)
     tsal = ts.text
-    tsal = tsal.replace(videoid+'_','https://yuustream.herokuapp.com/getstream?param=getts&source=https://edge5.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
+    tsal = tsal.replace(videoid+'_','https://yuustream.herokuapp.com/getstream?param=getts&source=https://edge10.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
     return tsal
 
 @app.route('/getstream',methods=['GET'])
