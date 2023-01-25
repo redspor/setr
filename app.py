@@ -30,7 +30,7 @@ def index(m3u8):
     }
     ts = requests.get(source, headers=headers)
     tsal = ts.text
-    tsal = tsal.replace(videoid+'_','https://yuustream.herokuapp.com/getstream?param=getts&source=https://edge10.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
+    tsal = tsal.replace(videoid+'_','https://yuustream.herokuapp.com/getstream?param=getts&source=https://edge5.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
     return tsal
 
 @app.route('/getm3u8',methods=['GET'])
@@ -55,7 +55,7 @@ def getm3u8():
     }
     ts = requests.get(source, headers=headers)
     tsal = ts.text
-    tsal = tsal.replace(videoid+'_','https://yuustream.herokuapp.com/getstream?param=getts&source=https://edge10.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
+    tsal = tsal.replace(videoid+'_','https://yuustream.herokuapp.com/getstream?param=getts&source=https://edge5.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
     return tsal
 
 @app.route('/getstream',methods=['GET'])
@@ -90,6 +90,14 @@ def getstream():
             veri = r.text
             veri = re.findall('"URL":"(.*?)"',veri)
             veri = veri[0].replace("\/", "__")
+            veri = veri.replace('edge3','edge10')
+            veri = veri.replace('edge100','edge10')
+            veri = veri.replace('edge4','edge10')
+            veri = veri.replace('edge2','edge10')
+            veri = veri.replace('edge5','edge10')
+            veri = veri.replace('edge1','edge10')
+            veri = veri.replace('edge6', 'edge10')
+            veri = veri.replace('edge7', 'edge10')
             veri = veri.replace(':43434','')
             if "m3u8" in veri:
                 '''return "https://yuustream.herokuapp.com/getm3u8?source="+veri+'&videoid='+videoid'''
