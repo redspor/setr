@@ -30,11 +30,11 @@ def index(m3u8):
     }
     ts = requests.get(source, headers=headers)
     tsal = ts.text
-    tsal = tsal.replace(videoid+'_','https://orca-app-rzon8.ondigitalocean.app/getstream?param=getts&source=https://edge5.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
+    tsal = tsal.replace(videoid+'_','https://orca-app-rzon8.ondigitalocean.app/getstream?param=getts&source=https://edge10.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
     if "internal" in tsal:
-        tsal = tsal.replace('internal','https://orca-app-rzon8.ondigitalocean.app/getstream?param=getts&source=https://edge5.xmediaget.com/hls-live/'+videoid+'/1/internal')
+        tsal = tsal.replace('internal','https://orca-app-rzon8.ondigitalocean.app/getstream?param=getts&source=https://edge10.xmediaget.com/hls-live/'+videoid+'/1/internal')
     if "segment" in tsal:
-        tsal = tsal.replace('\n'+'media','\n'+'https://orca-app-rzon8.ondigitalocean.app/getstream?param=getts&source=https://edge5.xmediaget.com/hls-live/'+videoid+'/1/media')
+        tsal = tsal.replace('\n'+'media','\n'+'https://orca-app-rzon8.ondigitalocean.app/getstream?param=getts&source=https://edge10.xmediaget.com/hls-live/'+videoid+'/1/media')
     return tsal
 
 @app.route('/getm3u8',methods=['GET'])
@@ -59,7 +59,7 @@ def getm3u8():
     }
     ts = requests.get(source, headers=headers)
     tsal = ts.text
-    tsal = tsal.replace(videoid+'_','https://orca-app-rzon8.ondigitalocean.app/getstream?param=getts&source=https://edge5.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
+    tsal = tsal.replace(videoid+'_','https://orca-app-rzon8.ondigitalocean.app/getstream?param=getts&source=https://edge10.xmediaget.com/hls-live/'+videoid+'/1/'+videoid+'_')
     return tsal
 
 @app.route('/getstream',methods=['GET'])
@@ -89,21 +89,21 @@ def getstream():
     if param == "getm3u8":
         videoid = request.args.get("videoid")
         veriler = {"AppId": "3", "AppVer": "1025", "VpcVer": "1.0.11", "Language": "tr", "Token": "", "VideoId": videoid}
-        r = requests.post("https://1xlite-434278.top/cinema",json=veriler)
+        r = requests.post("https://1xlite-566140.top/cinema",json=veriler)
         if "FullscreenAllowed" in r.text:
             veri = r.text
             veri = re.findall('"URL":"(.*?)"',veri)
             veri = veri[0].replace("\/", "__")
-            veri = veri.replace('edge3','edge5')
-            veri = veri.replace('edge100','edge5')
-            veri = veri.replace('edge4','edge5')
-            veri = veri.replace('edge2','edge5')
-            veri = veri.replace('edge5','edge5')
-            veri = veri.replace('edge1','edge5')
-            veri = veri.replace('edge6', 'edge5')
-            veri = veri.replace('edge7', 'edge5')
+            veri = veri.replace('edge3','edge10')
+            veri = veri.replace('edge100','edge10')
+            veri = veri.replace('edge4','edge10')
+            veri = veri.replace('edge2','edge10')
+            veri = veri.replace('edge5','edge10')
+            veri = veri.replace('edge1','edge10')
+            veri = veri.replace('edge6', 'edge10')
+            veri = veri.replace('edge7', 'edge10')
             veri = veri.replace(':43434','')
-            veri = veri.replace('edge100','edge5')
+            veri = veri.replace('edge100','edge10')
             if "m3u8" in veri:
                 '''return "https://orca-app-rzon8.ondigitalocean.app/getm3u8?source="+veri+'&videoid='+videoid'''
                 return "https://orca-app-rzon8.ondigitalocean.app/"+veri+'&videoid='+videoid
